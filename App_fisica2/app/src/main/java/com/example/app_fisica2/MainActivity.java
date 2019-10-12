@@ -64,16 +64,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void animacion(final String animacion){
+    public void animacion(final String animacion) {
         long t = Long.parseLong(tiempo.getText().toString());
         long d = Long.parseLong(distancia.getText().toString());
-        switch (animacion){
+        long resultTime = t*1000;
+        switch (animacion) {
             case "startObjet":
                 //asingt operation
                 Velocidad(d,t);
 
                 objectAnimator = ObjectAnimator.ofFloat(tren, "x", d);
-                objectAnimator.setDuration(t*1000);
+                objectAnimator.setDuration(resultTime);
                 animatorSet = new AnimatorSet();
                 animatorSet.play(objectAnimator);
                 animatorSet.start();
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
 //                objectAnimator = ObjectAnimator.ofFloat(tren, "x", 250f);
 //                animatorSet.playTogether(ObjectAnimator.ofFloat(objectAnimator,"x",12f));
+//                objectAnimator.setDuration(10000);
                 animatorSetX = new AnimatorSet();
                 animatorSetX.play(objectAnimator);
                 animatorSetX.start();
