@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView resultVel;
     private String showResult;
     private ObjectAnimator objectAnimator;
+    private Animation anim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,26 +73,27 @@ public class MainActivity extends AppCompatActivity {
                 this.showResult = Wrapper.getWrapString(Velocity.getVelocidy(d,t));
                 this.resultVel.setText(showResult);
                 //config axis and distance
-                objectAnimator = ObjectAnimator.ofFloat(tren, "x", d);
+                objectAnimator = Animation.setValues(tren, "x", d);
                 //config time
                 objectAnimator.setDuration(t*1000);
                 //start animation
-                Animation.setStartAnimation(objectAnimator);
+                new Animation(objectAnimator).StartAnimation();
                 break;
             case "resetObjet":
                 //this method reallocate values
                 objectAnimator.setRepeatMode(objectAnimator.RESTART);
                 //config axis and distance
-                objectAnimator = ObjectAnimator.ofFloat(tren, "x", 0f);
+                objectAnimator = Animation.setValues(tren, "x", 0);
                 //start animation
-                Animation.setStartAnimation(objectAnimator);
+                new Animation(objectAnimator).StartAnimation();
                 break;
             default:
+                Toast.makeText(this,"valores no asignados", Toast.LENGTH_SHORT);
                 break;
         }
     }
 
-    public void NextActivity2(View view){
+    public void NextActivity2(View view) {
         Intent intent = new Intent(this,Activity2.class);
         startActivity(intent);
     }

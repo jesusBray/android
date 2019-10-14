@@ -2,34 +2,25 @@ package com.example.app_fisica2;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.widget.ImageView;
 
 public class Animation {
 
     private ObjectAnimator objectAnimator;
-    public Animation(ObjectAnimator objectAnimator){
+    private AnimatorSet a;
+
+    public Animation(ObjectAnimator objectAnimator) {
         this.objectAnimator = objectAnimator;
-
+        a = new AnimatorSet();
     }
 
-    public static void setStartAnimation(ObjectAnimator objectAnimator){
-        AnimatorSet a = new AnimatorSet();
-        a.play(objectAnimator);
-        a.start();
+    public void StartAnimation() {
+        this.a.play(this.objectAnimator);
+        this.a.start();
     }
 
-    public void StartAnimation(String option) {
-        switch (option) {
-            case "startObjet":
-
-                break;
-            case "resetObjet":
-
-                break;
-                default:
-                    break;
-
-
-        }
+    public static ObjectAnimator setValues(ImageView image, String axis, long distanse){
+        return ObjectAnimator.ofFloat(image, axis, distanse);
     }
 
 
