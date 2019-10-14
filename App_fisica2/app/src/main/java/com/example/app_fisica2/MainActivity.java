@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private Button resetbutton;
 
     //statics variables T, D
-    private final long TIEMPO= 2000;
-    private final long DISTANCIA= 500;
+    private final String AXIS_X= "x";
+    private final long DISTANCIA= 0;
 
     private EditText distancia;
     private EditText tiempo;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 this.showResult = Wrapper.getWrapString(Velocity.getVelocidy(d,t));
                 this.resultVel.setText(showResult);
                 //config axis and distance
-                objectAnimator = Animation.setValues(tren, "x", d);
+                objectAnimator = Animation.setValues(tren, this.AXIS_X, d);
                 //config time
                 objectAnimator.setDuration(t*1000);
                 //start animation
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 //this method reallocate values
                 objectAnimator.setRepeatMode(objectAnimator.RESTART);
                 //config axis and distance
-                objectAnimator = Animation.setValues(tren, "x", 0);
+                objectAnimator = Animation.setValues(tren, this.AXIS_X, this.DISTANCIA);
                 //start animation
                 new Animation(objectAnimator).StartAnimation();
                 break;
