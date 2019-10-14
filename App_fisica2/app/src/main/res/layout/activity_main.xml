@@ -47,7 +47,6 @@
         android:layout_width="324dp"
         android:layout_height="290dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/distancia"
         app:srcCompat="@drawable/fondo1" />
@@ -133,10 +132,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="327dp"
-        android:layout_height="41dp"
-        android:text="MENU FORMS"
+        android:id="@+id/btnNextActivity"
+        android:layout_width="330dp"
+        android:layout_height="36dp"
+        android:onClick="NextActivity2"
+        android:text="MORE INFORMATION"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,7 +12,7 @@ public class Wrapper {
         return d/t;
     }
 
-    public static String getGrapString(double resultV){
+    public static String getWrapString(double resultV){
         return String.valueOf(resultV);
     }
 

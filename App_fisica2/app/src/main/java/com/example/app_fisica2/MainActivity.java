@@ -3,6 +3,7 @@ package com.example.app_fisica2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         distancia = findViewById(R.id.distancia);
         tiempo = findViewById(R.id.tiempo);
         resultVel = findViewById(R.id.velocidad);
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         switch (animacion) {
             case "startObjet":
                 //call method velodicity
-                this.showResult = Wrapper.getGrapString(Velocity.getVelocidy(d,t));
+                this.showResult = Wrapper.getWrapString(Velocity.getVelocidy(d,t));
                 this.resultVel.setText(showResult);
                 //config axis and distance
                 objectAnimator = ObjectAnimator.ofFloat(tren, "x", d);
@@ -86,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    public void NextActivity2(View view){
+        Intent intent = new Intent(this,Activity2.class);
+        startActivity(intent);
     }
 
 }
